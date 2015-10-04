@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+  <definition name="common" template="/WEB-INF/layout/classic.jsp">
+    <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
+  </definition>
+  <definition name="index" extends="common">
+    <put-attribute name="title" value="Black Books" />
+    <put-attribute name="body" value="/WEB-INF/jsp/index.jsp"/>
+    <put-attribute name="current" value="index"/>
+  </definition>
+  <definition name="catalog" extends="common">
+    <put-attribute name="title" value="Black Books Catalog" />
+    <put-attribute name="body" value="/WEB-INF/jsp/catalog.jsp"/>
+    <put-attribute name="current" value="catalog"/>
+  </definition>
+  <definition name="book-details" extends="common">
+    <put-attribute name="title" value="Black Book's Details" />
+    <put-attribute name="body" value="/WEB-INF/jsp/book-details.jsp"/>
+    <put-attribute name="current" value="catalog"/>
+  </definition>
+  <definition name="user-register" extends="common">
+    <put-attribute name="title" value="Black Books User Registration" />
+    <put-attribute name="body" value="/WEB-INF/jsp/user-register.jsp"/>
+    <put-attribute name="current" value="user-register"/>
+  </definition>
+</tiles-definitions>

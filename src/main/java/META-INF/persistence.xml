@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="EBookShopMaven">
+		<class>xam.cross.entity.Book</class>
+		<class>xam.cross.entity.User</class>
+		<class>xam.cross.entity.Role</class>
+		<class>xam.cross.entity.Blog</class>
+		<class>xam.cross.entity.Item</class>
+		<class>xam.cross.entity.Author</class>
+	</persistence-unit>
+</persistence>
