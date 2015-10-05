@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Book {
@@ -16,9 +17,22 @@ public class Book {
 	
 	private String title;
 	
+	private double price;
+	
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
 	@ManyToMany
 	private List<Author> authors;
 
+	@ManyToMany(mappedBy="books")
+	private List<ShoppingCart> carts;	
+	
 	public Integer getId() {
 		return id;
 	}

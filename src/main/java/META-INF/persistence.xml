@@ -4,8 +4,7 @@
 		<class>xam.cross.entity.Book</class>
 		<class>xam.cross.entity.User</class>
 		<class>xam.cross.entity.Role</class>
-		<class>xam.cross.entity.Blog</class>
-		<class>xam.cross.entity.Item</class>
 		<class>xam.cross.entity.Author</class>
+		<class>xam.cross.entity.ShoppingCart</class>
 	</persistence-unit>
 </persistence>

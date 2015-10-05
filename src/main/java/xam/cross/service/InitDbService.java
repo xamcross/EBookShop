@@ -1,7 +1,6 @@
 package xam.cross.service;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -11,16 +10,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import xam.cross.entity.Author;
-import xam.cross.entity.Blog;
 import xam.cross.entity.Book;
-import xam.cross.entity.Item;
 import xam.cross.entity.Role;
+import xam.cross.entity.ShoppingCart;
 import xam.cross.entity.User;
 import xam.cross.repository.AuthorRepository;
-import xam.cross.repository.BlogRepository;
 import xam.cross.repository.BookRepository;
-import xam.cross.repository.ItemRepository;
 import xam.cross.repository.RoleRepository;
+import xam.cross.repository.ShoppingCartRepository;
 import xam.cross.repository.UserRepository;
 
 @Transactional
@@ -34,16 +31,13 @@ public class InitDbService {
 	private UserRepository userRepository;
 	
 	@Autowired
-	private BlogRepository blogRepository;
-	
-	@Autowired
-	private ItemRepository itemRepository;
-	
-	@Autowired
 	private BookRepository bookRepository;
 	
 	@Autowired
 	private AuthorRepository authorRepository;
+	
+	@Autowired
+	private ShoppingCartRepository cartRepository;
 	
 	@PostConstruct
 	public void init(){
@@ -55,33 +49,17 @@ public class InitDbService {
 		roleAdmin.setName("ROLE_ADMIN");
 		roleRepository.save(roleAdmin);
 		
+		ShoppingCart cart = new ShoppingCart();
+		cartRepository.save(cart);
+		
 		User userAdmin = new User();
 		userAdmin.setName("admin");
 		List<Role> roles = new ArrayList<Role>();
 		roles.add(roleAdmin);
 		roles.add(roleUser);
 		userAdmin.setRoles(roles);
+		userAdmin.setCart(cart);
 		userRepository.save(userAdmin);
-		
-		Blog blogJavaVids = new Blog();
-		blogJavaVids.setName("JavaVids");
-		blogJavaVids.setUrl("http://feeds.feedburner.com/javavids?format=xml");
-		blogJavaVids.setUser(userAdmin);
-		blogRepository.save(blogJavaVids);
-		
-		Item item1 = new Item();
-		item1.setBlog(blogJavaVids);
-		item1.setTitle("first");
-		item1.setLink("http://www.javavids.com");
-		item1.setPublishedDate(new Date());
-		itemRepository.save(item1);
-		
-		Item item2 = new Item();
-		item2.setBlog(blogJavaVids);
-		item2.setTitle("second");
-		item2.setLink("http://www.javavids.com");
-		item2.setPublishedDate(new Date());
-		itemRepository.save(item2);
 		
 		Author hermanMelvill = new Author();
 		hermanMelvill.setFullName("Herman Melvill");
@@ -100,6 +78,7 @@ public class InitDbService {
 		List<Author> mobbyDickAuthors = new ArrayList<Author>();
 		mobbyDickAuthors.add(hermanMelvill);
 		mobbyDick.setAuthors(mobbyDickAuthors);
+		mobbyDick.setPrice(5.99);
 		bookRepository.save(mobbyDick);
 		
 		Book picnicAtTheRoadside = new Book();
@@ -108,6 +87,7 @@ public class InitDbService {
 		picnicAuthors.add(aStrugatskiy);
 		picnicAuthors.add(bStrugatskiy);
 		picnicAtTheRoadside.setAuthors(picnicAuthors);
+		picnicAtTheRoadside.setPrice(7.20);
 		bookRepository.save(picnicAtTheRoadside);
 		
 		Book mondayOnSaturday = new Book();
@@ -116,6 +96,10 @@ public class InitDbService {
 		mOnSAuthors.add(aStrugatskiy);
 		mOnSAuthors.add(bStrugatskiy);
 		mondayOnSaturday.setAuthors(mOnSAuthors);
+		mondayOnSaturday.setPrice(12);
 		bookRepository.save(mondayOnSaturday);
+		
+		
+		
 	}
 }

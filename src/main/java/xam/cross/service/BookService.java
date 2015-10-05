@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import xam.cross.entity.Author;
 import xam.cross.entity.Book;
+import xam.cross.entity.User;
 import xam.cross.repository.AuthorRepository;
 import xam.cross.repository.BookRepository;
 
@@ -46,4 +47,9 @@ public class BookService {
 		}
 		return books;
 	}
+
+	public void save(Book book) {
+		bookRepository.save(book);
+	}
+
 }

@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -22,20 +23,20 @@ public class User {
 	
 	private String password;
 	
+	@OneToOne
+	private ShoppingCart shoppingCart;
+	
+	public ShoppingCart getCart() {
+		return shoppingCart;
+	}
+
+	public void setCart(ShoppingCart cart) {
+		this.shoppingCart = cart;
+	}
+
 	@ManyToMany
 	@JoinTable
 	private List<Role> roles;
-	
-	@OneToMany(mappedBy="user")
-	private List<Blog> blogs;
-	
-	public List<Blog> getBlogs() {
-		return blogs;
-	}
-
-	public void setBlogs(List<Blog> blogs) {
-		this.blogs = blogs;
-	}
 
 	public String getName() {
 		return name;

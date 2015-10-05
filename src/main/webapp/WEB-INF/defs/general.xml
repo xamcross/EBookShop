@@ -26,4 +26,9 @@
     <put-attribute name="body" value="/WEB-INF/jsp/user-register.jsp"/>
     <put-attribute name="current" value="user-register"/>
   </definition>
+  <definition name="add-book" extends="common">
+    <put-attribute name="title" value="Black Books Book Creator" />
+    <put-attribute name="body" value="/WEB-INF/jsp/add-book.jsp"/>
+    <put-attribute name="current" value="add-book"/>
+  </definition>
 </tiles-definitions>

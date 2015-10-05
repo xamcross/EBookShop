@@ -59,6 +59,8 @@
 							href='<tags:url value="/EBookShop/catalog"/>'>Catalog</a></li>
 						<li class="${current == 'user-register' ? 'active' : '' }"><a
 							href='<tags:url value="/EBookShop/user-register"/>'>Register</a></li>
+						<li class="${current == 'add-book' ? 'active' : '' }"><a
+							href='<tags:url value="/EBookShop/add-book"/>'>Add New Book</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
